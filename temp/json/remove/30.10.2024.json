@@ -793,26 +793,6 @@
         {
             "week_number": 2,
             "day_of_week": 3,
-            "group_name": "С-71",
-            "lesson_number": 5,
-            "subgroup": 0,
-            "subject": "",
-            "instructor": "",
-            "classroom": ""
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 3,
-            "group_name": "С-71",
-            "lesson_number": 6,
-            "subgroup": 0,
-            "subject": "",
-            "instructor": "",
-            "classroom": ""
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 3,
             "group_name": "С-72",
             "lesson_number": 1,
             "subgroup": 0,

@@ -525,7 +525,7 @@
             "day_of_week": 3,
             "group_name": "С-71",
             "lesson_number": 3,
-            "subgroup": 1,
+            "subgroup": 2,
             "subject": "УП.03",
             "instructor": "Иванов А.Н.",
             "classroom": "12"
@@ -535,26 +535,6 @@
             "day_of_week": 3,
             "group_name": "С-71",
             "lesson_number": 4,
-            "subgroup": 2,
-            "subject": "УП.03",
-            "instructor": "Иванов А.Н.",
-            "classroom": "12"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 3,
-            "group_name": "С-71",
-            "lesson_number": 5,
-            "subgroup": 2,
-            "subject": "УП.03",
-            "instructor": "Иванов А.Н.",
-            "classroom": "12"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 3,
-            "group_name": "С-71",
-            "lesson_number": 6,
             "subgroup": 2,
             "subject": "УП.03",
             "instructor": "Иванов А.Н.",
