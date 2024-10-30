@@ -3,7 +3,7 @@ import os
 from contextlib import asynccontextmanager
 from datetime import datetime
 from typing import Optional, List
-
+import uvicorn
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from fastapi import FastAPI, HTTPException, Query
@@ -613,6 +613,5 @@ async def get_class_dates(
     return {"class_dates": class_dates}  # Возвращаем список всех вхождений
 
 if __name__ == "__main__":
-    import uvicorn
 
     uvicorn.run(app, host="0.0.0.0", port=8000)
