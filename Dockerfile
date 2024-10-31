@@ -18,6 +18,9 @@ RUN pip install playwright && \
 # Устанавливаем supervisord
 RUN apt-get update && apt-get install -y supervisor
 
+# Создаем директорию для логов
+RUN mkdir -p /app/logs
+
 # Открываем порт, на котором будет работать приложение
 EXPOSE 8000
 
