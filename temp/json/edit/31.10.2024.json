@@ -463,16 +463,6 @@
         {
             "week_number": 2,
             "day_of_week": 4,
-            "group_name": "ЭК1-203",
-            "lesson_number": 5,
-            "subgroup": 0,
-            "subject": "Химия",
-            "instructor": "Ершова К.С.",
-            "classroom": "311"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 4,
             "group_name": "ЭК1-204",
             "lesson_number": 1,
             "subgroup": 2,
@@ -549,16 +539,6 @@
             "subject": "Тех.обслуж.пром.оборуд",
             "instructor": "Тюкина Л.В.",
             "classroom": "203"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 4,
-            "group_name": "БМ-221",
-            "lesson_number": 4,
-            "subgroup": 0,
-            "subject": "Экономика отрасли",
-            "instructor": "Лагута И.С.",
-            "classroom": "204"
         },
         {
             "week_number": 2,
@@ -1297,6 +1277,26 @@
             "lesson_number": 4,
             "subgroup": 0,
             "subject": "Тех.оборуд.газ/нефт/провод.",
+            "instructor": "Борисова Л.В.",
+            "classroom": "310"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 4,
+            "group_name": "НП-162",
+            "lesson_number": 5,
+            "subgroup": 1,
+            "subject": "УП.01",
+            "instructor": "Борисова Л.В.",
+            "classroom": "310"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 4,
+            "group_name": "НП-162",
+            "lesson_number": 6,
+            "subgroup": 1,
+            "subject": "УП.01",
             "instructor": "Борисова Л.В.",
             "classroom": "310"
         },
@@ -2443,6 +2443,16 @@
         {
             "week_number": 2,
             "day_of_week": 4,
+            "group_name": "ЭК1-203",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "315"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 4,
             "group_name": "ЭК1-204",
             "lesson_number": 2,
             "subgroup": 0,
@@ -2628,7 +2638,7 @@
             "subgroup": 2,
             "subject": "Разраб.прог.модулей",
             "instructor": "Польченко А.О.",
-            "classroom": ""
+            "classroom": "РЦ-7"
         },
         {
             "week_number": 2,
@@ -2638,7 +2648,7 @@
             "subgroup": 2,
             "subject": "Разработ.мобил.приложений",
             "instructor": "Польченко А.О.",
-            "classroom": ""
+            "classroom": "РЦ-7"
         },
         {
             "week_number": 2,
@@ -2658,7 +2668,7 @@
             "subgroup": 2,
             "subject": "Разраб.прог.модулей",
             "instructor": "Польченко А.О.",
-            "classroom": ""
+            "classroom": "РЦ-7"
         },
         {
             "week_number": 2,
@@ -2769,26 +2779,6 @@
             "subject": "Вып.монт.КИП и эл.схем сист.авт.",
             "instructor": "Белова Н.А.",
             "classroom": "531"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 4,
-            "group_name": "НП-162",
-            "lesson_number": 5,
-            "subgroup": 1,
-            "subject": "УП.01",
-            "instructor": "Борисова Л.В.",
-            "classroom": "315"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 4,
-            "group_name": "НП-162",
-            "lesson_number": 6,
-            "subgroup": 1,
-            "subject": "УП.01",
-            "instructor": "Борисова Л.В.",
-            "classroom": "315"
         },
         {
             "week_number": 2,

@@ -11,7 +11,7 @@ def load_excel_data(path):
 
 def extract_date_info(file_path, date_info_str):
     """Извлекает дату, день недели и номер недели из данных файла и строки."""
-    date_match = re.search(r'(\d{2}\.\d{2}\.\d{4})', file_path)
+    date_match = re.search(r'(\d{1,2}\.\d{1,2}\.\d{2,4})', file_path)
     day_of_week_match = re.search(r'\((.*?)\)', date_info_str)
     week_number_match = re.search(r'Неделя (\d+)', date_info_str)
 
