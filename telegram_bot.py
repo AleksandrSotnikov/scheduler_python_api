@@ -40,8 +40,7 @@ def ask_date_image(message):
 
         # Проверяем наличие "files" и берём даты
         if "files" in data:
-            dates = sorted(data["files"], reverse=True)[:3]
-            dates.sort()
+            dates = data["files"][-3:]
 
             # Создаём клавиатуру для выбора даты
             keyboard = types.InlineKeyboardMarkup()
