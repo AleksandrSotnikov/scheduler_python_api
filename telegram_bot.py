@@ -47,7 +47,7 @@ def ask_date(message):
         bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
 
 
-@bot.callback_query_handlers(func=lambda call: True)
+@bot.callback_query_handler(func=lambda call: True)
 def send_schedule(call):
     group, date = call.data.split('|')
     url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
