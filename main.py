@@ -478,7 +478,10 @@ async def get_date_list():
     except ValueError as e:
         raise HTTPException(status_code=400, detail=f"Error parsing dates: {str(e)}")
     sorted_dates = [date.strftime(date_format) for date in date_list]
-
+    sorted_dates = {"files": sorted_dates}
+    dates = sorted_dates["files"][-3:]
+    for date in dates:
+        print(date)
     return {"files": sorted_dates}
 
 
