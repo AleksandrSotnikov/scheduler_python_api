@@ -704,6 +704,16 @@
             "week_number": 2,
             "day_of_week": 5,
             "group_name": "БХ-34",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "",
+            "instructor": "",
+            "classroom": ""
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "БХ-34",
             "lesson_number": 2,
             "subgroup": 0,
             "subject": "",
@@ -913,6 +923,16 @@
         {
             "week_number": 2,
             "day_of_week": 5,
+            "group_name": "КИП1-193",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Допуски и тех.изм.",
+            "instructor": "Уленкова Е.В.",
+            "classroom": "532"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
             "group_name": "КИП1-194",
             "lesson_number": 4,
             "subgroup": 0,
@@ -1084,6 +1104,16 @@
             "week_number": 2,
             "day_of_week": 5,
             "group_name": "Л-14",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "",
+            "instructor": "",
+            "classroom": ""
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "Л-14",
             "lesson_number": 4,
             "subgroup": 0,
             "subject": "",
@@ -1095,6 +1125,16 @@
             "day_of_week": 5,
             "group_name": "Л2-13",
             "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "",
+            "instructor": "",
+            "classroom": ""
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "Л2-13",
+            "lesson_number": 4,
             "subgroup": 0,
             "subject": "",
             "instructor": "",

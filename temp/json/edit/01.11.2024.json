@@ -1003,16 +1003,6 @@
         {
             "week_number": 2,
             "day_of_week": 5,
-            "group_name": "КИП1-193",
-            "lesson_number": 4,
-            "subgroup": 0,
-            "subject": "Допуски и тех.изм.",
-            "instructor": "Уленкова Е.В.",
-            "classroom": "532"
-        },
-        {
-            "week_number": 2,
-            "day_of_week": 5,
             "group_name": "КИП1-194",
             "lesson_number": 1,
             "subgroup": 1,
@@ -2455,6 +2445,16 @@
             "day_of_week": 5,
             "group_name": "БХ-34",
             "lesson_number": 1,
+            "subgroup": 1,
+            "subject": "Химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "211"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "БХ-34",
+            "lesson_number": 1,
             "subgroup": 2,
             "subject": "Информ.",
             "instructor": "Капустина Н.В.",
@@ -2613,6 +2613,16 @@
         {
             "week_number": 2,
             "day_of_week": 5,
+            "group_name": "КИП1-193",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Допуски и тех.изм.",
+            "instructor": "Уленкова Е.В.",
+            "classroom": "124"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
             "group_name": "КИП1-194",
             "lesson_number": 4,
             "subgroup": 0,
@@ -2683,6 +2693,16 @@
         {
             "week_number": 2,
             "day_of_week": 5,
+            "group_name": "Л1-13",
+            "lesson_number": 2,
+            "subgroup": 2,
+            "subject": "Общ.и неорган.химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "121"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
             "group_name": "Л-12",
             "lesson_number": 4,
             "subgroup": 0,
@@ -2699,6 +2719,16 @@
             "subject": "Осн.аналит.хим.и ФХМА",
             "instructor": "Мистюкова Л.А.",
             "classroom": "Экск"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "Л-14",
+            "lesson_number": 3,
+            "subgroup": 1,
+            "subject": "Химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "314"
         },
         {
             "week_number": 2,
@@ -2729,6 +2759,16 @@
             "subject": "Информ.тех-гии в ПД",
             "instructor": "Петрова О.Б.",
             "classroom": "306"
+        },
+        {
+            "week_number": 2,
+            "day_of_week": 5,
+            "group_name": "Л2-13",
+            "lesson_number": 4,
+            "subgroup": 1,
+            "subject": "Общ.и неорган.химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "121"
         },
         {
             "week_number": 2,

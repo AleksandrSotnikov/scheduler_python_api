@@ -16,6 +16,13 @@ from services.file_operations import save_file, parse_schedule, start_schedule_p
 from utils import validate_date_format, load_classrooms_from_file, load_instructors_from_file, \
     load_groups_from_file, get_filtered_schedule, load_subjects_from_file
 
+
+from fastapi import FastAPI, Response
+from pydantic import BaseModel
+from typing import List
+from PIL import Image, ImageDraw, ImageFont
+import io
+
 # Инициализируем FastAPI с помощью lifespan
 scheduler = AsyncIOScheduler()
 
@@ -37,6 +44,66 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+
+@app.post("/generate_schedule_image/")
+async def generate_schedule_image(schedule: ScheduleResponse, day: str):
+    # Параметры изображения и шрифт
+    img_width, img_height = 1000, 100 + len(schedule.results) * 50
+    background_color = (255, 255, 255)
+    text_color = (0, 0, 0)
+    line_color = (200, 200, 200)
+
+    try:
+        font = ImageFont.truetype("Arial Unicode.ttf", 16)  # Замените на путь к шрифту, поддерживающему кириллицу
+    except IOError:
+        raise HTTPException(status_code=500, detail="Шрифт не найден. Убедитесь, что DejaVuSans.ttf доступен.")
+
+    # Создание изображения и таблицы
+    img = Image.new("RGB", (img_width, img_height), background_color)
+    draw = ImageDraw.Draw(img)
+    padding = 10  # Отступ сверху
+
+    # Заголовок
+    title_text = f"Расписание занятий на {day}"
+    draw.text((img_width // 2 - 160, 20), title_text, fill=text_color, font=font, align="center")
+
+    # Настройки для табличного отображения
+    y_offset = 60  # начальная высота для таблицы
+    col_positions = {
+        "left": 20,
+        "center": img_width // 2 - 160,
+        "right": img_width - 400
+    }
+    row_height = 40
+    cell_padding = 10
+
+    y_offset += row_height
+
+    # Заполнение таблицы данными расписания
+    for record in schedule.results:
+        if record.subgroup == 0:
+            x_pos = col_positions["center"]
+        elif record.subgroup == 1:
+            x_pos = col_positions["left"]
+        else:
+            x_pos = col_positions["right"]
+
+        row_text = f"{record.group_name} - Урок {record.lesson_number}"
+        subject_text = f"{record.subject[:20]}, {record.instructor[:20]}"
+        draw.text((x_pos, y_offset), row_text, fill=text_color, font=font, align="center")
+        draw.text((x_pos + cell_padding, y_offset + row_height // 2), subject_text, fill=text_color, font=font, align="center")
+        draw.text((x_pos + 300, y_offset + row_height // 2), f"Ауд. {record.classroom}", fill=text_color, font=font, align="center")
+
+        # Линия подчеркивания
+        y_offset += row_height
+        draw.line([(padding, y_offset), (img_width - padding, y_offset)], fill=line_color)
+
+    # Конвертация изображения в байты
+    img_byte_array = io.BytesIO()
+    img.save(img_byte_array, format="PNG")
+    img_byte_array = img_byte_array.getvalue()
+
+    return Response(content=img_byte_array, media_type="image/png")
 
 @app.post("/main_schedule/upload/", response_model=UploadResponse, status_code=201)
 async def upload_schedule(file: UploadFile = File(...), admin: str = ""):
@@ -180,9 +247,10 @@ async def get_schedule_edit_group(
         raise HTTPException(status_code=500, detail=f"Ошибка загрузки расписания: {str(e)}")
 
     # Фильтрация по группе
-    filtered_schedule = [
-        record for record in schedule if record["group_name"] == group
-    ]
+    filtered_schedule = sorted(
+        (record for record in schedule if record["group_name"] == group),
+        key=lambda record: record["lesson_number"]
+    )
 
     return ScheduleResponse(results=[ScheduleRecord(**record) for record in filtered_schedule])
 
@@ -210,11 +278,11 @@ async def get_schedule_edit_group_pg(
         raise HTTPException(status_code=500, detail=f"Ошибка загрузки расписания: {str(e)}")
 
     # Фильтрация по группе и подгруппе
-    filtered_schedule = [
-        record for record in schedule
-        if record["group_name"] == group and
-           (record["subgroup"] == subgroup or record["subgroup"] == 0)
-    ]
+    filtered_schedule = sorted(
+        (record for record in schedule if record["group_name"] == group and
+         (record["subgroup"] == subgroup or record["subgroup"] == 0)),
+        key=lambda record: record["lesson_number"]
+    )
 
     return ScheduleResponse(results=[ScheduleRecord(**record) for record in filtered_schedule])
 
@@ -237,7 +305,10 @@ async def get_schedule_edit_instructor(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Ошибка загрузки расписания: {str(e)}")
 
-    filtered_schedule = [record for record in schedule if record["instructor"] == instructor]
+    filtered_schedule = sorted(
+        (record for record in schedule if record["instructor"] == instructor),
+        key=lambda record: record["lesson_number"]
+    )
     return ScheduleResponse(results=[ScheduleRecord(**record) for record in filtered_schedule])
 
 
@@ -259,7 +330,10 @@ async def get_schedule_edit_classroom(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Ошибка загрузки расписания: {str(e)}")
 
-    filtered_schedule = [record for record in schedule if record["classroom"] == classroom]
+    filtered_schedule = sorted(
+        (record for record in schedule if record["classroom"] == classroom),
+        key=lambda record: record["lesson_number"]
+    )
     return ScheduleResponse(results=[ScheduleRecord(**record) for record in filtered_schedule])
 
 
@@ -396,8 +470,16 @@ async def get_date_list():
     # Проверка на случай пустой директории
     if not file_list:
         return {"files": "No files found in directory"}
+    try:
+        date_format = "%d.%m.%Y"  # Укажите формат вашей даты в именах файлов
+        date_list = sorted(
+            [datetime.strptime(file, date_format) for file in file_list]  # Сортировка по возрастанию
+        )
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=f"Error parsing dates: {str(e)}")
+    sorted_dates = [date.strftime(date_format) for date in date_list]
 
-    return {"files": file_list}
+    return {"files": sorted_dates}
 
 
 @app.get("/list/classroom/")

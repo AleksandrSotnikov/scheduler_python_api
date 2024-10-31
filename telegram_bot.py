@@ -1,5 +1,7 @@
-import requests
+
 from telebot import TeleBot, types
+import requests
+from io import BytesIO
 
 bot = TeleBot('6670908590:AAHOdqarDZRxv3kre35zyQjynQtEe_hSphc')
 
@@ -11,13 +13,47 @@ url_date = 'http://aesotq1.duckdns.org:8000/list/date/'
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    bot.send_message(message.chat.id, 'Привет, чем я могу помочь?')
+    bot.send_message(message.chat.id, '/schedule_group')
+    bot.send_message(message.chat.id, '/schedule_group_image')
 
 
 @bot.message_handler(commands=['schedule_group'])
 def ask_edit(message):
-    bot.send_message(message.chat.id, 'Введите название группы (например БП1-110):')
+    bot.send_message(message.chat.id, 'Введите название группы (например БП2-112):')
     bot.register_next_step_handler(message, ask_date)
+
+
+@bot.message_handler(commands=['schedule_group_image'])
+def ask_edit(message):
+    bot.send_message(message.chat.id, 'Введите название группы (например БП2-112):')
+    bot.register_next_step_handler(message, ask_date_image)
+
+
+def ask_date_image(message):
+    group = message.text
+
+    try:
+        # Выполняем запрос к серверу
+        response = requests.get(url_date)
+        response.raise_for_status()
+        data = response.json()
+
+        # Проверяем наличие "files" и берём даты
+        if "files" in data:
+            dates = sorted(data["files"], reverse=True)[:3]
+            dates.sort()
+
+            # Создаём клавиатуру для выбора даты
+            keyboard = types.InlineKeyboardMarkup()
+            for date_str in dates:
+                keyboard.add(types.InlineKeyboardButton(text=date_str, callback_data=f"{group}/{date_str}"))
+
+            bot.send_message(message.chat.id, "Выберите нужную дату:", reply_markup=keyboard)
+        else:
+            bot.send_message(message.chat.id, "Ошибка: данные о датах не найдены.")
+
+    except requests.exceptions.RequestException as e:
+        bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
 
 
 def ask_date(message):
@@ -45,6 +81,35 @@ def ask_date(message):
 
     except requests.exceptions.RequestException as e:
         bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
+
+
+
+
+
+@bot.callback_query_handler(func=lambda call: True)
+def send_schedule(call):
+    group, date = call.data.split('/')
+    url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
+    url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
+
+    try:
+        # Запрос на получение детального расписания
+        response = requests.get(url_group)
+        response.raise_for_status()
+        schedule_data = response.json()
+
+        # Запрос на получение изображения с расписанием
+        response_image = requests.post(url_image, json=schedule_data)
+        response_image.raise_for_status()
+
+        # Преобразование ответа в изображение
+        image = BytesIO(response_image.content)
+
+        # Отправка изображения в Telegram
+        bot.send_photo(call.message.chat.id, image, caption=f"Расписание для группы {group} на {date}")
+
+    except requests.exceptions.RequestException as e:
+        bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
 
 
 @bot.callback_query_handler(func=lambda call: True)
