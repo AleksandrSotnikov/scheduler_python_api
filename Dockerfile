@@ -10,9 +10,10 @@ COPY . .
 # Устанавливаем зависимости проекта
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Устанавливаем Playwright и скачиваем браузеры
+# Устанавливаем Playwright и системные зависимости для браузеров
 RUN pip install playwright && \
-    playwright install
+    playwright install && \
+    playwright install-deps
 
 # Открываем порт, на котором будет работать приложение
 EXPOSE 8000
