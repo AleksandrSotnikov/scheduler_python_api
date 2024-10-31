@@ -15,8 +15,14 @@ RUN pip install playwright && \
     playwright install && \
     playwright install-deps
 
+# Устанавливаем supervisord
+RUN apt-get update && apt-get install -y supervisor
+
 # Открываем порт, на котором будет работать приложение
 EXPOSE 8000
 
-# Команда для запуска FastAPI приложения
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Копируем файл конфигурации supervisord
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Команда запуска supervisord
+CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
