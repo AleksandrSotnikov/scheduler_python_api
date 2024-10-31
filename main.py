@@ -16,7 +16,6 @@ from services.file_operations import save_file, parse_schedule, start_schedule_p
 from utils import validate_date_format, load_classrooms_from_file, load_instructors_from_file, \
     load_groups_from_file, get_filtered_schedule, load_subjects_from_file
 
-
 from fastapi import FastAPI, Response
 from pydantic import BaseModel
 from typing import List
@@ -48,7 +47,7 @@ app = FastAPI(lifespan=lifespan)
 @app.post("/generate_schedule_image/")
 async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     # Параметры изображения и шрифт
-    img_width, img_height = 1000, 100 + len(schedule.results) * 50
+    img_width, img_height = 800, 100 + 300
     background_color = (255, 255, 255)
     text_color = (0, 0, 0)
     line_color = (200, 200, 200)
@@ -61,18 +60,18 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     # Создание изображения и таблицы
     img = Image.new("RGB", (img_width, img_height), background_color)
     draw = ImageDraw.Draw(img)
-    padding = 10  # Отступ сверху
-
+    padding_up = 10  # Отступ сверху
+    padding_left = 20
     # Заголовок
     title_text = f"Расписание занятий на {day}"
-    draw.text((img_width // 2 - 160, 20), title_text, fill=text_color, font=font, align="center")
+    draw.text((img_width // 2 - len(title_text) * 4, 20), title_text, fill=text_color, font=font, align="center")
 
     # Настройки для табличного отображения
     y_offset = 60  # начальная высота для таблицы
     col_positions = {
-        "left": 20,
-        "center": img_width // 2 - 160,
-        "right": img_width - 400
+        "left": padding_left,
+        "center": img_width // 3,
+        "right": img_width // 2 + padding_left
     }
     row_height = 40
     cell_padding = 10
@@ -85,18 +84,18 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             x_pos = col_positions["center"]
         elif record.subgroup == 1:
             x_pos = col_positions["left"]
+            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
         else:
             x_pos = col_positions["right"]
+            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
 
-        row_text = f"{record.group_name} - Урок {record.lesson_number}"
-        subject_text = f"{record.subject[:20]}, {record.instructor[:20]}"
-        draw.text((x_pos, y_offset), row_text, fill=text_color, font=font, align="center")
-        draw.text((x_pos + cell_padding, y_offset + row_height // 2), subject_text, fill=text_color, font=font, align="center")
-        draw.text((x_pos + 300, y_offset + row_height // 2), f"Ауд. {record.classroom}", fill=text_color, font=font, align="center")
+        row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
+        subject_text = f"{record.subject}, {record.instructor}"
 
-        # Линия подчеркивания
-        y_offset += row_height
-        draw.line([(padding, y_offset), (img_width - padding, y_offset)], fill=line_color)
+        draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
+        draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
+                  align="center")
+        draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
 
     # Конвертация изображения в байты
     img_byte_array = io.BytesIO()
@@ -104,6 +103,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     img_byte_array = img_byte_array.getvalue()
 
     return Response(content=img_byte_array, media_type="image/png")
+
 
 @app.post("/main_schedule/upload/", response_model=UploadResponse, status_code=201)
 async def upload_schedule(file: UploadFile = File(...), admin: str = ""):
@@ -516,6 +516,7 @@ async def get_list_classroom():
     # Возвращаем уникальные кабинеты в виде списка
     return {"classrooms": list(all_classrooms)}
 
+
 @app.get("/list/subject/")
 async def get_list_classroom():
     """Возвращает список уникальных кабинетов из основного файла и последних трёх файлов."""
@@ -625,7 +626,7 @@ def load_schedule_data_counter(file_path: str) -> List[dict]:
 
 
 def filter_schedule_data_counter(schedule_data: List[dict], group_name: Optional[str], subgroup: Optional[int],
-                         subject: Optional[str], instructor: Optional[str]) -> List[dict]:
+                                 subject: Optional[str], instructor: Optional[str]) -> List[dict]:
     """Фильтрует данные расписания по заданным параметрам."""
     return [
         record for record in schedule_data
@@ -683,7 +684,8 @@ async def get_class_dates(
     for filename in os.listdir(data_folder):
         if filename.endswith(".json"):
             try:
-                date_str = filename.split(".")[0] + "." + filename.split(".")[1] + "." + filename.split(".")[2]  # Извлекаем дату из названия файла
+                date_str = filename.split(".")[0] + "." + filename.split(".")[1] + "." + filename.split(".")[
+                    2]  # Извлекаем дату из названия файла
                 datetime.strptime(date_str, "%d.%m.%Y")  # Проверка корректности формата
             except ValueError:
                 raise HTTPException(status_code=500, detail=f"Некорректный формат даты в файле {filename}")
@@ -693,10 +695,11 @@ async def get_class_dates(
             filtered_data = filter_schedule_data_counter(schedule_data, group_name, subgroup, subject, instructor)
 
             if filtered_data:
-                class_dates.extend([date_str] * len(filtered_data))  # Добавляем дату столько раз, сколько соответствующих пар
+                class_dates.extend(
+                    [date_str] * len(filtered_data))  # Добавляем дату столько раз, сколько соответствующих пар
 
     return {"class_dates": class_dates}  # Возвращаем список всех вхождений
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
