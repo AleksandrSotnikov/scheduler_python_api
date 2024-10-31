@@ -1,7 +1,7 @@
 import requests
 from telebot import TeleBot, types
 
-bot = TeleBot('7284242143:AAHBr6L6qV93pjVCNzpC_EtsVEfZF3E0lFA')
+bot = TeleBot('6670908590:AAHOdqarDZRxv3kre35zyQjynQtEe_hSphc')
 
 url_group_pg = 'http://aesotq1.duckdns.org:8000/edit_schedule/group_pg/?group=%D0%91%D0%9F1-111&subgroup=1&day=30.10.2024'
 
