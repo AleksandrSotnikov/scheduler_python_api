@@ -7,8 +7,12 @@ WORKDIR /app
 # Копируем файлы проекта в контейнер
 COPY . .
 
-# Устанавливаем зависимости
+# Устанавливаем зависимости проекта
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Устанавливаем Playwright и скачиваем браузеры
+RUN pip install playwright && \
+    playwright install
 
 # Открываем порт, на котором будет работать приложение
 EXPOSE 8000
