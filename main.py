@@ -54,7 +54,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     line_color = (200, 200, 200)
 
     try:
-        font = ImageFont.truetype("Arial Unicode.ttf", 16)  # Замените на путь к шрифту, поддерживающему кириллицу
+        font = ImageFont.truetype("fonts/DejaVuSans.ttf", 16)  # Замените на путь к шрифту, поддерживающему кириллицу
     except IOError:
         raise HTTPException(status_code=500, detail="Шрифт не найден. Убедитесь, что DejaVuSans.ttf доступен.")
 

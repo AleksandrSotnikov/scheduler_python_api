@@ -83,72 +83,71 @@ def ask_date(message):
         bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
 
 
-
-
-
 @bot.callback_query_handler(func=lambda call: True)
 def send_schedule(call):
-    group, date = call.data.split('/')
-    url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
-    url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
+    if '|' in call.data:
+        group, date = call.data.split('|')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
 
-    try:
-        # Запрос на получение детального расписания
-        response = requests.get(url_group)
-        response.raise_for_status()
-        schedule_data = response.json()
-
-        # Запрос на получение изображения с расписанием
-        response_image = requests.post(url_image, json=schedule_data)
-        response_image.raise_for_status()
-
-        # Преобразование ответа в изображение
-        image = BytesIO(response_image.content)
-
-        # Отправка изображения в Telegram
-        bot.send_photo(call.message.chat.id, image, caption=f"Расписание для группы {group} на {date}")
-
-    except requests.exceptions.RequestException as e:
-        bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
-
-
-@bot.callback_query_handler(func=lambda call: True)
-def send_schedule(call):
-    group, date = call.data.split('|')
-    url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
-
-    try:
-        # Запрос на получение детального расписания
-        response = requests.get(url_group)
-        response.raise_for_status()
-        schedule_data = response.json()
+        try:
+            # Запрос на получение детального расписания
+            response = requests.get(url_group)
+            response.raise_for_status()
+            schedule_data = response.json()
 
         # Разделение расписания по подгруппам
-        schedule_subgroup_1 = f"Расписание для группы {group} (подгруппа 1) на {date}:\n\n"
-        schedule_subgroup_2 = f"Расписание для группы {group} (подгруппа 2) на {date}:\n\n"
+            schedule_subgroup_1 = f"Расписание для группы {group} (подгруппа 1) на {date}:\n\n"
+            schedule_subgroup_2 = f"Расписание для группы {group} (подгруппа 2) на {date}:\n\n"
 
-        for entry in schedule_data["results"]:
-            lesson_text = (
-                f"{entry['lesson_number']} - {entry['subject']}\n"
-                f"Преподаватель: {entry['instructor']}\n"
-                f"Кабинет: {entry['classroom']}\n\n"
-            )
+            for entry in schedule_data["results"]:
+                lesson_text = (
+                    f"{entry['lesson_number']} - {entry['subject']}\n"
+                    f"Преподаватель: {entry['instructor']}\n"
+                    f"Кабинет: {entry['classroom']}\n\n"
+                )
 
-            # Общая пара (подгруппа 0) добавляется в оба расписания
-            if entry["subgroup"] == 0:
-                schedule_subgroup_1 += lesson_text
-                schedule_subgroup_2 += lesson_text
-            elif entry["subgroup"] == 1:
-                schedule_subgroup_1 += lesson_text
-            elif entry["subgroup"] == 2:
-                schedule_subgroup_2 += lesson_text
+                # Общая пара (подгруппа 0) добавляется в оба расписания
+                if entry["subgroup"] == 0:
+                    schedule_subgroup_1 += lesson_text
+                    schedule_subgroup_2 += lesson_text
+                elif entry["subgroup"] == 1:
+                    schedule_subgroup_1 += lesson_text
+                elif entry["subgroup"] == 2:
+                    schedule_subgroup_2 += lesson_text
 
         # Отправляем расписание каждой подгруппе
-        bot.send_message(call.message.chat.id, schedule_subgroup_1)
-        bot.send_message(call.message.chat.id, schedule_subgroup_2)
+            bot.send_message(call.message.chat.id, schedule_subgroup_1)
+            bot.send_message(call.message.chat.id, schedule_subgroup_2)
 
-    except requests.exceptions.RequestException as e:
-        bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+    else:
+        group, date = call.data.split('/')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
+        url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
 
+        try:
+            # Запрос на получение детального расписания
+            response = requests.get(url_group)
+            response.raise_for_status()
+            schedule_data = response.json()
+
+            # Запрос на получение изображения с расписанием
+            response_image = requests.post(url_image, json=schedule_data)
+            response_image.raise_for_status()
+
+            # Проверка и использование ответа
+            if response_image.status_code == 200:
+                print("Запрос успешно выполнен")
+            else:
+                print(f"Ошибка: {response_image.status_code}")
+            # Преобразование ответа в изображение
+            image = BytesIO(response_image.content)
+
+            # Отправка изображения в Telegram
+            bot.send_photo(call.message.chat.id, image, caption=f"Расписание для группы {group} на {date}")
+
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
 
 bot.polling(none_stop=True)
