@@ -105,16 +105,16 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             x_pos = col_positions["center"]
         elif record.subgroup == 1:
             x_pos = col_positions["left"]
-            draw.line([(490,100),(490,400)], fill=line_color)
+            draw.line([(490,50+50*record.lesson_number),(490,100+50*record.lesson_number)], fill=line_color)
         else:
             x_pos = col_positions["right"]
-            draw.line([(490, 100), (490, 400)], fill=line_color)
+            draw.line([(490, 50 + 50 * record.lesson_number), (490, 100 + 50 * record.lesson_number)], fill=line_color)
 
         row_text = (f"{record.group_name}({record.subgroup}) - Ауд. {record.classroom}\n"
                     f"{record.subject}, {record.instructor}")
     #subject_text = f"{record.subject}, {record.instructor}"
 
-        draw.text((x_pos, record.lesson_number * row_height + 20), row_text, fill=text_color, font=font, align="center")
+        draw.text((490,60+50*record.lesson_number), row_text, fill=text_color, font=font, align="center")
     #draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
     #             align="center")
     #draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
