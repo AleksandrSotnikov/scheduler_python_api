@@ -1,5 +1,5 @@
-
 from telebot import TeleBot, types
+from bot_utils import *
 import requests
 from io import BytesIO
 
@@ -13,91 +13,64 @@ url_date = 'http://aesotq1.duckdns.org:8000/list/date/'
 
 @bot.message_handler(commands=['start'])
 def main(message):
-    bot.send_message(message.chat.id, '/schedule_group')
-    bot.send_message(message.chat.id, '/schedule_group_image')
+    text = ""
+    for command in list_commands():
+        text += command + "\n"
+    bot.send_message(message.chat.id, text)
 
 
 @bot.message_handler(commands=['schedule_group'])
 def ask_edit(message):
-    bot.send_message(message.chat.id, 'Введите название группы (например БП2-112):')
-    bot.register_next_step_handler(message, ask_date)
+    bot.send_message(message.chat.id, 'Введите название группы (например: БП2-112):')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="group_text"))
 
 
 @bot.message_handler(commands=['schedule_group_image'])
 def ask_edit(message):
-    bot.send_message(message.chat.id, 'Введите название группы (например БП2-112):')
-    bot.register_next_step_handler(message, ask_date_image)
+    bot.send_message(message.chat.id, 'Введите название группы (например: БП2-112):')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="group_image"))
 
 
-def ask_date_image(message):
-    group = message.text
-
-    try:
-        # Выполняем запрос к серверу
-        response = requests.get(url_date)
-        response.raise_for_status()
-        data = response.json()
-
-        # Проверяем наличие "files" и берём даты
-        if "files" in data:
-            dates = data["files"][-3:]
-
-            # Создаём клавиатуру для выбора даты
-            keyboard = types.InlineKeyboardMarkup()
-            for date_str in dates:
-                keyboard.add(types.InlineKeyboardButton(text=date_str, callback_data=f"{group}/{date_str}"))
-
-            bot.send_message(message.chat.id, "Выберите нужную дату:", reply_markup=keyboard)
-        else:
-            bot.send_message(message.chat.id, "Ошибка: данные о датах не найдены.")
-
-    except requests.exceptions.RequestException as e:
-        bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
+@bot.message_handler(commands=['schedule_classroom'])
+def ask_edit(message):
+    bot.send_message(message.chat.id, 'Введите номер кабинета (например: 547, РЦ-7):')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="classroom_text"))
 
 
-def ask_date(message):
-    group = message.text
+@bot.message_handler(commands=['schedule_classroom_image'])
+def ask_edit(message):
+    bot.send_message(message.chat.id, 'Введите номер кабинета (например: 547, РЦ-7):')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="classroom_image"))
 
-    try:
-        # Выполняем запрос к серверу
-        response = requests.get(url_date)
-        response.raise_for_status()
-        data = response.json()
 
-        # Проверяем наличие "files" и берём даты
-        if "files" in data:
-            dates = data["files"][-3:]
+@bot.message_handler(commands=['schedule_teacher'])
+def ask_edit(message):
+    bot.send_message(message.chat.id, 'Введите Фамилию И.О. преподавателя (например: Иванов И.И.)')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="teacher_text"))
 
-            # Создаём клавиатуру для выбора даты
-            keyboard = types.InlineKeyboardMarkup()
-            for date_str in dates:
-                keyboard.add(types.InlineKeyboardButton(text=date_str, callback_data=f"{group}|{date_str}"))
 
-            bot.send_message(message.chat.id, "Выберите нужную дату:", reply_markup=keyboard)
-        else:
-            bot.send_message(message.chat.id, "Ошибка: данные о датах не найдены.")
+@bot.message_handler(commands=['schedule_teacher_image'])
+def ask_edit(message):
+    bot.send_message(message.chat.id, 'Введите Фамилию И.О. преподавателя (например: Иванов И.И.):')
+    bot.register_next_step_handler(message, lambda msg: ask_date(msg, message_type="teacher_image"))
 
-    except requests.exceptions.RequestException as e:
-        bot.send_message(message.chat.id, f"Ошибка при получении дат: {e}")
+
+def ask_date(message, message_type):
+    utils_ask_date(message, bot, message_type)
 
 
 @bot.callback_query_handler(func=lambda call: True)
 def send_schedule(call):
-    if '|' in call.data:
-        group, date = call.data.split('|')
+    if 'group_text' in call.data.split('|')[0]:
+        message_type, group, date = call.data.split('|')
         url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
 
         try:
-            # Запрос на получение детального расписания
-            response = requests.get(url_group)
-            response.raise_for_status()
-            schedule_data = response.json()
-
-        # Разделение расписания по подгруппам
+            # Разделение расписания по подгруппам
             schedule_subgroup_1 = f"Расписание для группы {group} (подгруппа 1) на {date}:\n\n"
             schedule_subgroup_2 = f"Расписание для группы {group} (подгруппа 2) на {date}:\n\n"
 
-            for entry in schedule_data["results"]:
+            for entry in utils_get_schedule_url(url_group)["results"]:
                 lesson_text = (
                     f"{entry['lesson_number']} - {entry['subject']}\n"
                     f"Преподаватель: {entry['instructor']}\n"
@@ -113,38 +86,65 @@ def send_schedule(call):
                 elif entry["subgroup"] == 2:
                     schedule_subgroup_2 += lesson_text
 
-        # Отправляем расписание каждой подгруппе
+            # Отправляем расписание каждой подгруппе
             bot.send_message(call.message.chat.id, schedule_subgroup_1)
             bot.send_message(call.message.chat.id, schedule_subgroup_2)
 
         except requests.exceptions.RequestException as e:
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
-    else:
-        group, date = call.data.split('/')
+    if 'group_image' in call.data.split('|')[0]:
+        message_type, group, date = call.data.split('|')
         url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
-        url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
+        try:
+            bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group,date), caption=f"Расписание для группы {group} на {date}")
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+    if 'classroom_text' in call.data.split('|')[0]:
+        message_type, classroom, date = call.data.split('|')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
 
         try:
-            # Запрос на получение детального расписания
-            response = requests.get(url_group)
-            response.raise_for_status()
-            schedule_data = response.json()
+            schedule = ""
+            for entry in utils_get_schedule_url(url_group)["results"]:
+                lesson_text = (
+                    f"{entry['lesson_number']} - {entry['subject']}\n"
+                    f"Преподаватель: {entry['instructor']}\n"
+                    f"Кабинет: {entry['classroom']}\n\n"
+                )
+                schedule += lesson_text
+            bot.send_message(call.message.chat.id, schedule)
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+    if 'classroom_image' in call.data.split('|')[0]:
+        message_type, classroom, date = call.data.split('|')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
+        try:
+            bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date),
+                           caption=f"Расписание для кабинета {classroom} на {date}")
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+    if 'teacher_text' in call.data.split('|')[0]:
+        message_type, instructor, date = call.data.split('|')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
 
-            # Запрос на получение изображения с расписанием
-            response_image = requests.post(url_image, json=schedule_data)
-            response_image.raise_for_status()
-
-            # Проверка и использование ответа
-            if response_image.status_code == 200:
-                print("Запрос успешно выполнен")
-            else:
-                print(f"Ошибка: {response_image.status_code}")
-            # Преобразование ответа в изображение
-            image = BytesIO(response_image.content)
-
-            # Отправка изображения в Telegram
-            bot.send_photo(call.message.chat.id, image, caption=f"Расписание для группы {group} на {date}")
-
+        try:
+            schedule = ""
+            for entry in utils_get_schedule_url(url_group)["results"]:
+                lesson_text = (
+                    f"{entry['lesson_number']} - {entry['subject']}\n"
+                    f"Преподаватель: {entry['instructor']}\n"
+                    f"Кабинет: {entry['classroom']}\n\n"
+                )
+                schedule += lesson_text
+            bot.send_message(call.message.chat.id, schedule)
+        except requests.exceptions.RequestException as e:
+            bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
+    if 'teacher_image' in call.data.split('|')[0]:
+        message_type, instructor, date = call.data.split('|')
+        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
+        try:
+            bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date),
+                           caption=f"Расписание для преподавателя {instructor} на {date}")
         except requests.exceptions.RequestException as e:
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
 
