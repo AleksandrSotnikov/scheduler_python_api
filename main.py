@@ -96,12 +96,12 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
 
     draw.text((20,100),"1 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,150),"2 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,200),"3 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,250),"4 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,300),"5 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,350),"6 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-
+    draw.text((20,150),"2 пара, 9:45-11:20", fill=text_color, font=font, align="center")
+    draw.text((20,200),"3 пара, 11:55-13:30", fill=text_color, font=font, align="center")
+    draw.text((20,250),"4 пара, 13:45-15:20", fill=text_color, font=font, align="center")
+    draw.text((20,300),"5 пара, 15:40-17:15", fill=text_color, font=font, align="center")
+    draw.text((20,350),"6 пара, 17:25-19:00", fill=text_color, font=font, align="center")
+    draw.line([(100,100),(100,350)],fill=line_color)
 
 
     row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
