@@ -110,7 +110,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     draw.line([(20,350),(780,350)],fill=line_color)
 
 
-    row_text = (f"{record.group_name} - Ауд. {record.classroom}"
+    row_text = (f"{record.group_name}({record.subgroup}) - Ауд. {record.classroom}\n"
                 f"{record.subject}, {record.instructor}")
     #subject_text = f"{record.subject}, {record.instructor}"
 
