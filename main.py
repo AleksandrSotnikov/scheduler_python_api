@@ -108,7 +108,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             draw.line([(490,100),(490,400)], fill=line_color)
         else:
             x_pos = col_positions["right"]
-            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset + row_height)])
+            draw.line([(490, 100), (490, 400)], fill=line_color)
 
         row_text = (f"{record.group_name}({record.subgroup}) - Ауд. {record.classroom}\n"
                     f"{record.subject}, {record.instructor}")
