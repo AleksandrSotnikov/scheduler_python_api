@@ -75,9 +75,9 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     # Настройки для табличного отображения
     y_offset = 60  # начальная высота для таблицы
     col_positions = {
-        "left": padding_left,
-        "center": img_width // 3,
-        "right": img_width // 2 + padding_left
+        "left": 180,
+        "center": 390,
+        "right": 600
     }
     row_height = 40
     cell_padding = 10
@@ -105,7 +105,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             x_pos = col_positions["center"]
         elif record.subgroup == 1:
             x_pos = col_positions["left"]
-            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset + row_height)])
+            draw.line([(490,100),(490,400)], fill=line_color)
         else:
             x_pos = col_positions["right"]
             draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset + row_height)])
