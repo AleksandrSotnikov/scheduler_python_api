@@ -100,6 +100,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
 
     # Заполнение таблицы данными расписания
     for record in schedule.results:
+        print(record)
         if record.subgroup == 0:
             x_pos = col_positions["center"]
         elif record.subgroup == 1:
