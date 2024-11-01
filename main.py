@@ -102,6 +102,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     draw.text((20,300),"5 пара, 15:40-17:15", fill=text_color, font=font, align="center")
     draw.text((20,350),"6 пара, 17:25-19:00", fill=text_color, font=font, align="center")
     draw.line([(180,100),(180,350)],fill=line_color)
+    draw.line([(20,100),(780,100)],fill=line_color)
 
 
     row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
