@@ -50,7 +50,8 @@ def utils_get_schedule_url(url):
 
 def utils_get_schedule_image(url,date):
     url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
-    response_image = requests.post(url_image, json=utils_get_schedule_url(url))
+    json = utils_get_schedule_url(url)
+    response_image = requests.post(url_image, json=json)
     response_image.raise_for_status()
 
     # Проверка и использование ответа
@@ -59,4 +60,4 @@ def utils_get_schedule_image(url,date):
     else:
         print(f"Ошибка: {response_image.status_code}")
     # Преобразование ответа в изображение
-    image = BytesIO(response_image.content)
+    return BytesIO(response_image.content)
