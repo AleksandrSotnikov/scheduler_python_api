@@ -53,7 +53,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     line_color = (200, 200, 200)
 
     try:
-        font = ImageFont.truetype("fonts/DejaVuSans.ttf", 16)  # Замените на путь к шрифту, поддерживающему кириллицу
+        font = ImageFont.truetype("fonts/Zekton.ttf", 16)  # Замените на путь к шрифту, поддерживающему кириллицу
     except IOError:
         raise HTTPException(status_code=500, detail="Шрифт не найден. Убедитесь, что DejaVuSans.ttf доступен.")
 
@@ -65,7 +65,13 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     # Заголовок
     title_text = f"Расписание занятий на {day}"
     draw.text((img_width // 2 - len(title_text) * 4, 20), title_text, fill=text_color, font=font, align="center")
-
+    try:
+        logo = Image.open("images/ompec_ico.jpg")
+        logo_width, logo_height = 100, 100  # Размеры логотипа
+        logo = logo.resize((logo_width, logo_height))  # Масштабируем логотип
+        img.paste(logo, (img_width - logo_width - 20, 10))  # Позиция логотипа (справа сверху)
+    except IOError:
+        raise HTTPException(status_code=500, detail="Изображение логотипа не найдено. Проверьте путь.")
     # Настройки для табличного отображения
     y_offset = 60  # начальная высота для таблицы
     col_positions = {
@@ -88,6 +94,11 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
         else:
             x_pos = col_positions["right"]
             draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
+
+    para = (f"{record.lesson_number} Пара")
+    for i in range(6):
+
+
 
         row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
         subject_text = f"{record.subject}, {record.instructor}"

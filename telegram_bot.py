@@ -96,7 +96,7 @@ def send_schedule(call):
         message_type, group, date = call.data.split('|')
         url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
         try:
-            bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group,date), caption=f"Расписание для группы {group} на {date}")
+            bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date), caption=f"Расписание для группы {group} на {date}")
         except requests.exceptions.RequestException as e:
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'classroom_text' in call.data.split('|')[0]:
@@ -109,7 +109,7 @@ def send_schedule(call):
                 lesson_text = (
                     f"{entry['lesson_number']} - {entry['subject']}\n"
                     f"Преподаватель: {entry['instructor']}\n"
-                    f"Кабинет: {entry['classroom']}\n\n"
+                    f"Группа: {entry['classroom']}\n\n"
                 )
                 schedule += lesson_text
             bot.send_message(call.message.chat.id, schedule)

@@ -1,0 +1,1074 @@
+{
+    "results": [
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТЭМ-51",
+            "lesson_number": 2,
+            "subgroup": 1,
+            "subject": "УП.03",
+            "instructor": "Фёдоров К.А.",
+            "classroom": "РЦ-1"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТЭМ-51",
+            "lesson_number": 2,
+            "subgroup": 2,
+            "subject": "Ин.яз.в ПД",
+            "instructor": "Степаненко И.Б.",
+            "classroom": "415"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТЭМ-51",
+            "lesson_number": 3,
+            "subgroup": 2,
+            "subject": "УП.03",
+            "instructor": "Фёдоров К.А.",
+            "classroom": "РЦ-1"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТЭМ-54",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Физика",
+            "instructor": "Репин П.В.",
+            "classroom": "522"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л-11",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Осн.кач.кол.анализа природ.и промышл.",
+            "instructor": "Назарова Л.А.",
+            "classroom": "121"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-142",
+            "lesson_number": 1,
+            "subgroup": 2,
+            "subject": "Ин.яз.в ПД",
+            "instructor": "Дёмочкина В.П.",
+            "classroom": "514"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-142",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "ВР по проф.Агент банка",
+            "instructor": "Маслова Д.Б.",
+            "classroom": "213"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-142",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "ВР по проф.Агент банка",
+            "instructor": "Маслова Д.Б.",
+            "classroom": "213"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-142",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "ВР по проф.Агент банка",
+            "instructor": "Маслова Д.Б.",
+            "classroom": "213"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-143",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Экономика орг-ции",
+            "instructor": "Ольшевская Г.Ц.",
+            "classroom": "533"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-143",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "История",
+            "instructor": "Нейфельд О.Н.",
+            "classroom": "416"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-143",
+            "lesson_number": 6,
+            "subgroup": 0,
+            "subject": "Эл-ты высшей математики",
+            "instructor": "Бакаева С.Х.",
+            "classroom": "226"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-144",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Рус.язык",
+            "instructor": "Глущенко А.А.",
+            "classroom": "Экск"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БД-144",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Литер.",
+            "instructor": "Глущенко А.А.",
+            "classroom": "Экск"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-92",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Управ-ние персоналом",
+            "instructor": "Уленкова Е.В.",
+            "classroom": "314"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-92",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Управ-ние персоналом",
+            "instructor": "Уленкова Е.В.",
+            "classroom": "314"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-92",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Правовое обесп. проф.деятельности",
+            "instructor": "Пашкова Т.Н.",
+            "classroom": "521"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-92",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-93",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Рус.яз. в ПД",
+            "instructor": "Михайленко Т.С.",
+            "classroom": "Чит.з"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ1-93",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Рус.яз. в ПД",
+            "instructor": "Михайленко Т.С.",
+            "classroom": "Чит.з"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ2-93",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Рус.яз. в ПД",
+            "instructor": "Нуриева А.С.",
+            "classroom": "522"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ2-93",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Рус.яз. в ПД",
+            "instructor": "Нуриева А.С.",
+            "classroom": "522"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ2-93",
+            "lesson_number": 4,
+            "subgroup": 1,
+            "subject": "Орг. и НПО архив.дела",
+            "instructor": "Нуриева А.С.",
+            "classroom": "РЦ-7"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ДОУ-94",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Матем.",
+            "instructor": "Останина Н.С.",
+            "classroom": "205"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-112",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "УП.04",
+            "instructor": "Василенко Д.А.",
+            "classroom": "544"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-112",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "УП.04",
+            "instructor": "Василенко Д.А.",
+            "classroom": "544"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-113",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Осн.философии",
+            "instructor": "Меха Н.В.",
+            "classroom": "РЦ-2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-113",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Осн.философии",
+            "instructor": "Меха Н.В.",
+            "classroom": "РЦ-2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-114",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Физика",
+            "instructor": "Репин П.В.",
+            "classroom": "517"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-114",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Биология",
+            "instructor": "Незванова Н.М.",
+            "classroom": "411"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-112",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "УП.04",
+            "instructor": "Нестеренко Д.М.",
+            "classroom": "547"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-113",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Осн.философии",
+            "instructor": "Меха Н.В.",
+            "classroom": "РЦ-2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-113",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Осн.проект.БД",
+            "instructor": "Нестеренко Д.М.",
+            "classroom": "547"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-113",
+            "lesson_number": 6,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-114",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "География",
+            "instructor": "Рунг К.М.",
+            "classroom": "1 А"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭК1-204",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Биология",
+            "instructor": "Незванова Н.М.",
+            "classroom": "412"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭК2-204",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Осн. аналит.хим.",
+            "instructor": "Годзина Е.А.",
+            "classroom": "537"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭК2-204",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Осн. аналит.хим.",
+            "instructor": "Годзина Е.А.",
+            "classroom": "537"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БМ-222",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Управ.ремонт.пром.оборуд.и контр.над ним",
+            "instructor": "Рунг К.М.",
+            "classroom": "1 А"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БМ-224",
+            "lesson_number": 5,
+            "subgroup": 2,
+            "subject": "Информ.",
+            "instructor": "Окаевич В.И.",
+            "classroom": "303"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "О-24",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Обсл.тех.средств автом-ции",
+            "instructor": "Тюкина Л.В.",
+            "classroom": "203"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "О-24",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Ремонт техн-го оборуд.",
+            "instructor": "Попов Е.П.",
+            "classroom": "2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "О-24",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Ремонт техн-го оборуд.",
+            "instructor": "Попов Е.П.",
+            "classroom": "2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ1-31",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Гербсоммер А.В.",
+            "classroom": "313"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ1-32",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Петрушков А.В.",
+            "classroom": "С.з 3к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ1-34",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Биология",
+            "instructor": "Внукова В.В.",
+            "classroom": "Экск"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ2-32",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Пром. безопасность",
+            "instructor": "Тюкина Л.В.",
+            "classroom": "203"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ2-32",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Гербсоммер А.В.",
+            "classroom": "313"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ2-33",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Федоренко Е.А.",
+            "classroom": "с/з 1к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ2-34",
+            "lesson_number": 6,
+            "subgroup": 0,
+            "subject": "Осн.экономики",
+            "instructor": "Яркова Т.Н.",
+            "classroom": "538"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БХ-34",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Литер.",
+            "instructor": "Царегородцева Е.В.",
+            "classroom": "206"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "КСА-262",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Конституц.право",
+            "instructor": "Шевченко О.П.",
+            "classroom": "529"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-111",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Экономика отрасли",
+            "instructor": "Ольшевская Г.Ц.",
+            "classroom": "533"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-111",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "УП.01",
+            "instructor": "Польченко А.О.",
+            "classroom": "РЦ-4"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП1-111",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "УП.01",
+            "instructor": "Польченко А.О.",
+            "classroom": "РЦ-4"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-111",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Петрушков А.В.",
+            "classroom": "С.з 3к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БП2-111",
+            "lesson_number": 6,
+            "subgroup": 0,
+            "subject": "Поддерж.и тест.прогр.модулей",
+            "instructor": "Нестеренко Д.М.",
+            "classroom": "547"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "С-74",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "География",
+            "instructor": "Рунг К.М.",
+            "classroom": "1 А"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "С-74",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "ФК",
+            "instructor": "Петрушков А.В.",
+            "classroom": "С.з 3к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "С-74",
+            "lesson_number": 4,
+            "subgroup": 2,
+            "subject": "Информ.",
+            "instructor": "Вальян В.Г.",
+            "classroom": "544"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "КИП1-193",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Допуски и тех.изм.",
+            "instructor": "Уленкова Е.В.",
+            "classroom": "314"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "КИП1-194",
+            "lesson_number": 1,
+            "subgroup": 2,
+            "subject": "Информ.",
+            "instructor": "Богодская Т.С.",
+            "classroom": "302"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "КИП2-194",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Вып.монт.КИП и эл.схем сист.авт.",
+            "instructor": "Белова Н.А.",
+            "classroom": "531"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "КИП2-194",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Вед.налад.юстир.и сдача в экспл.КИП",
+            "instructor": "Михеева Е.В.",
+            "classroom": "531"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "НП-161",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Ремонт.работы",
+            "instructor": "Рунг К.М.",
+            "classroom": "1 А"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "НП-163",
+            "lesson_number": 1,
+            "subgroup": 2,
+            "subject": "Инж.и комп.граф.",
+            "instructor": "Шнайдер Т.А.",
+            "classroom": "424"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "НП-164",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "География",
+            "instructor": "Рунг К.М.",
+            "classroom": "1 А"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-82",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Наладка и испытания теплотех.оборуд.",
+            "instructor": "Глухов С.В.",
+            "classroom": "6"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-83",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "Экспл.,расчет и выбор теплотех.оборуд",
+            "instructor": "Глухов С.В.",
+            "classroom": "6"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-83",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-83",
+            "lesson_number": 4,
+            "subgroup": 1,
+            "subject": "Информ.тех-гии в ПД",
+            "instructor": "Старикова А.С.",
+            "classroom": "542"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-83",
+            "lesson_number": 4,
+            "subgroup": 2,
+            "subject": "Информ.тех-гии в ПД",
+            "instructor": "Ефимова Ю.А.",
+            "classroom": "543"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-84",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Материаловед.",
+            "instructor": "Шнайдер Т.А.",
+            "classroom": "424"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ТО-84",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "Осн.философии",
+            "instructor": "Меха Н.В.",
+            "classroom": "РЦ-2"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л1-13",
+            "lesson_number": 2,
+            "subgroup": 2,
+            "subject": "Аналитич.химия",
+            "instructor": "Шарапаева А.С.",
+            "classroom": "РЦ-11"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л1-13",
+            "lesson_number": 3,
+            "subgroup": 2,
+            "subject": "Аналитич.химия",
+            "instructor": "Шарапаева А.С.",
+            "classroom": "РЦ-11"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л-12",
+            "lesson_number": 4,
+            "subgroup": 2,
+            "subject": "ФКХ",
+            "instructor": "Шарапаева А.С.",
+            "classroom": "РЦ-11"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л-14",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Биология",
+            "instructor": "Внукова В.В.",
+            "classroom": "212"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л2-13",
+            "lesson_number": 4,
+            "subgroup": 2,
+            "subject": "Общ.и неорган.химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "311"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л2-13",
+            "lesson_number": 5,
+            "subgroup": 2,
+            "subject": "Общ.и неорган.химия",
+            "instructor": "Ершова К.С.",
+            "classroom": "311"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Л2-13",
+            "lesson_number": 6,
+            "subgroup": 1,
+            "subject": "Тех  ВР по проф.лаборант хим.анализа",
+            "instructor": "Вайц О.О.",
+            "classroom": "РЦ-10"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Э-41",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "УП.03",
+            "instructor": "Глухов С.В.",
+            "classroom": "6"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Э-41",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "УП.03",
+            "instructor": "Глухов С.В.",
+            "classroom": "6"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Э-41",
+            "lesson_number": 5,
+            "subgroup": 0,
+            "subject": "УП.03",
+            "instructor": "Глухов С.В.",
+            "classroom": "6"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Э-43",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Матем.",
+            "instructor": "Бакаева С.Х.",
+            "classroom": "226"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 1,
+            "subgroup": 1,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Первухина Т.В.",
+            "classroom": "316"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 2,
+            "subgroup": 1,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Первухина Т.В.",
+            "classroom": "316"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Первухин И.С.",
+            "classroom": "с/з 1к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 4,
+            "subgroup": 2,
+            "subject": "Ин.яз.",
+            "instructor": "Ермакова Н.В.",
+            "classroom": "427"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 5,
+            "subgroup": 2,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Первухина Т.В.",
+            "classroom": "316"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ХТ-252",
+            "lesson_number": 6,
+            "subgroup": 2,
+            "subject": "Управ.технол.процессом",
+            "instructor": "Первухина Т.В.",
+            "classroom": "316"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-122",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Аудит",
+            "instructor": "Ольшевская Г.Ц.",
+            "classroom": "533"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-122",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Аудит",
+            "instructor": "Ольшевская Г.Ц.",
+            "classroom": "533"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-122",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-123",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Прак.осн.бух.уч.источников",
+            "instructor": "Поберей Л.С.",
+            "classroom": "517"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-123",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Техн-гия составл.бух.очетности",
+            "instructor": "Поберей Л.С.",
+            "classroom": "517"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ББ-124",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Финансы, денежное обращение и кредит",
+            "instructor": "Яркова Т.Н.",
+            "classroom": "538"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "Э-44",
+            "lesson_number": 1,
+            "subgroup": 0,
+            "subject": "ФК",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭС-172",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Тех.диагност.и ремонт эл/оборуд.",
+            "instructor": "Козлюк А.С.",
+            "classroom": "7"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭС-172",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Тех.диагност.и ремонт эл/оборуд.",
+            "instructor": "Козлюк А.С.",
+            "classroom": "7"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭС-172",
+            "lesson_number": 4,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Мальцева Т.А.",
+            "classroom": "С/з 3 к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭС-173",
+            "lesson_number": 2,
+            "subgroup": 2,
+            "subject": "Информ.тех-гии в ПД",
+            "instructor": "Вальян В.Г.",
+            "classroom": "РЦ-7"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭТ-132",
+            "lesson_number": 2,
+            "subgroup": 0,
+            "subject": "Физ-ра",
+            "instructor": "Фризен Л.Н.",
+            "classroom": "С/з 3 к"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭТ-133",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Мир.культ.проц.",
+            "instructor": "Морозова Т.А.",
+            "classroom": "Чит.з"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БЮ-154",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "БЖД",
+            "instructor": "Рогова А.Ф.",
+            "classroom": "124"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "ЭТ-133",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "Мир.культ.проц.",
+            "instructor": "Морозова Т.А.",
+            "classroom": "Чит.з"
+        },
+        {
+            "week_number": 1,
+            "day_of_week": 2,
+            "group_name": "БЮ-154",
+            "lesson_number": 3,
+            "subgroup": 0,
+            "subject": "БЖД",
+            "instructor": "Рогова А.Ф.",
+            "classroom": "124"
+        }
+    ]
+}
