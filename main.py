@@ -110,13 +110,14 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     draw.line([(20,350),(780,350)],fill=line_color)
 
 
-    row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
+    row_text = (f"{record.group_name} - Ауд. {record.classroom}"
+                f"{record.subject}, {record.instructor}")
     subject_text = f"{record.subject}, {record.instructor}"
 
     draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
     draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
                   align="center")
-    draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
+    #draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
 
     # Конвертация изображения в байты
     img_byte_array = io.BytesIO()
