@@ -67,7 +67,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     draw.text((img_width // 2 - len(title_text) * 4, 20), title_text, fill=text_color, font=font, align="center")
     try:
         logo = Image.open("images/ompec_ico.jpg")
-        logo_width, logo_height = 100, 100  # Размеры логотипа
+        logo_width, logo_height = 90, 90  # Размеры логотипа
         logo = logo.resize((logo_width, logo_height))  # Масштабируем логотип
         img.paste(logo, (img_width - logo_width - 20, 10))  # Позиция логотипа (справа сверху)
     except IOError:
@@ -101,8 +101,13 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     draw.text((20,250),"4 пара, 13:45-15:20", fill=text_color, font=font, align="center")
     draw.text((20,300),"5 пара, 15:40-17:15", fill=text_color, font=font, align="center")
     draw.text((20,350),"6 пара, 17:25-19:00", fill=text_color, font=font, align="center")
-    draw.line([(180,100),(180,350)],fill=line_color)
+    draw.line([(170,100),(170,400)],fill=line_color)
     draw.line([(20,100),(780,100)],fill=line_color)
+    draw.line([(20,150),(780,150)],fill=line_color)
+    draw.line([(20,200),(780,200)],fill=line_color)
+    draw.line([(20,250),(780,250)],fill=line_color)
+    draw.line([(20,300),(780,300)],fill=line_color)
+    draw.line([(20,350),(780,350)],fill=line_color)
 
 
     row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
