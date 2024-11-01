@@ -77,7 +77,7 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     col_positions = {
         "left": 180,
         "center": 390,
-        "right": 600
+        "right": 500
     }
     row_height = 40
     cell_padding = 10
