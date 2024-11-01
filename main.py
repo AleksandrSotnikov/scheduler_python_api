@@ -115,8 +115,8 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
     #subject_text = f"{record.subject}, {record.instructor}"
 
     draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
-    draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
-                  align="center")
+    #draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
+     #             align="center")
     #draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
 
     # Конвертация изображения в байты
