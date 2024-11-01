@@ -84,39 +84,38 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
 
     y_offset += row_height
 
+    draw.text((20, 100), "1 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20, 150), "2 пара, 9:45-11:20", fill=text_color, font=font, align="center")
+    draw.text((20, 200), "3 пара, 11:55-13:30", fill=text_color, font=font, align="center")
+    draw.text((20, 250), "4 пара, 13:45-15:20", fill=text_color, font=font, align="center")
+    draw.text((20, 300), "5 пара, 15:40-17:15", fill=text_color, font=font, align="center")
+    draw.text((20, 350), "6 пара, 17:25-19:00", fill=text_color, font=font, align="center")
+    draw.line([(170, 100), (170, 400)], fill=line_color)
+    draw.line([(20, 100), (780, 100)], fill=line_color)
+    draw.line([(20, 150), (780, 150)], fill=line_color)
+    draw.line([(20, 200), (780, 200)], fill=line_color)
+    draw.line([(20, 250), (780, 250)], fill=line_color)
+    draw.line([(20, 300), (780, 300)], fill=line_color)
+    draw.line([(20, 350), (780, 350)], fill=line_color)
+
     # Заполнение таблицы данными расписания
     for record in schedule.results:
         if record.subgroup == 0:
             x_pos = col_positions["center"]
         elif record.subgroup == 1:
             x_pos = col_positions["left"]
-            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
+            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset + row_height)])
         else:
             x_pos = col_positions["right"]
-            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
+            draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset + row_height)])
 
-    draw.text((20,100),"1 пара, 8:00-9:35", fill=text_color, font=font, align="center")
-    draw.text((20,150),"2 пара, 9:45-11:20", fill=text_color, font=font, align="center")
-    draw.text((20,200),"3 пара, 11:55-13:30", fill=text_color, font=font, align="center")
-    draw.text((20,250),"4 пара, 13:45-15:20", fill=text_color, font=font, align="center")
-    draw.text((20,300),"5 пара, 15:40-17:15", fill=text_color, font=font, align="center")
-    draw.text((20,350),"6 пара, 17:25-19:00", fill=text_color, font=font, align="center")
-    draw.line([(170,100),(170,400)],fill=line_color)
-    draw.line([(20,100),(780,100)],fill=line_color)
-    draw.line([(20,150),(780,150)],fill=line_color)
-    draw.line([(20,200),(780,200)],fill=line_color)
-    draw.line([(20,250),(780,250)],fill=line_color)
-    draw.line([(20,300),(780,300)],fill=line_color)
-    draw.line([(20,350),(780,350)],fill=line_color)
-
-
-    row_text = (f"{record.group_name}({record.subgroup}) - Ауд. {record.classroom}\n"
-                f"{record.subject}, {record.instructor}")
+        row_text = (f"{record.group_name}({record.subgroup}) - Ауд. {record.classroom}\n"
+                    f"{record.subject}, {record.instructor}")
     #subject_text = f"{record.subject}, {record.instructor}"
 
-    draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
+        draw.text((x_pos, record.lesson_number * row_height + 20), row_text, fill=text_color, font=font, align="center")
     #draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
-     #             align="center")
+    #             align="center")
     #draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
 
     # Конвертация изображения в байты
