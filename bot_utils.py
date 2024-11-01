@@ -17,7 +17,7 @@ def list_commands():
 
 def utils_ask_date(message, bot, type):
     # URL для получения списка дат
-    url_date = 'http://aesotq1.duckdns.org:8000/list/date/'
+    url_date = 'http://195.133.18.119:8000/list/date/'
 
     group = message.text
     try:
@@ -49,8 +49,9 @@ def utils_get_schedule_url(url):
     return response.json()
 
 def utils_get_schedule_image(url,date):
-    url_image = f'http://aesotq1.duckdns.org:8000/generate_schedule_image/?day={date}'
+    url_image = f'http://195.133.18.119:8000/generate_schedule_image/?day={date}'
     json = utils_get_schedule_url(url)
+    print(json)
     response_image = requests.post(url_image, json=json)
     response_image.raise_for_status()
 

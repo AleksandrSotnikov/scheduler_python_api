@@ -5,10 +5,10 @@ from io import BytesIO
 
 bot = TeleBot('6670908590:AAHOdqarDZRxv3kre35zyQjynQtEe_hSphc')
 
-url_group_pg = 'http://aesotq1.duckdns.org:8000/edit_schedule/group_pg/?group=%D0%91%D0%9F1-111&subgroup=1&day=30.10.2024'
+url_group_pg = 'http://195.133.18.119:8000/edit_schedule/group_pg/?group=%D0%91%D0%9F1-111&subgroup=1&day=30.10.2024'
 
 # URL для получения списка дат
-url_date = 'http://aesotq1.duckdns.org:8000/list/date/'
+url_date = 'http://195.133.18.119:8000/list/date/'
 
 
 @bot.message_handler(commands=['start'])
@@ -63,7 +63,7 @@ def ask_date(message, message_type):
 def send_schedule(call):
     if 'group_text' in call.data.split('|')[0]:
         message_type, group, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/group/?group={group}&day={date}'
 
         try:
             # Разделение расписания по подгруппам
@@ -94,14 +94,14 @@ def send_schedule(call):
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'group_image' in call.data.split('|')[0]:
         message_type, group, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/group/?group={group}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/group/?group={group}&day={date}'
         try:
             bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date), caption=f"Расписание для группы {group} на {date}")
         except requests.exceptions.RequestException as e:
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'classroom_text' in call.data.split('|')[0]:
         message_type, classroom, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
 
         try:
             schedule = ""
@@ -117,7 +117,7 @@ def send_schedule(call):
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'classroom_image' in call.data.split('|')[0]:
         message_type, classroom, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/classroom/?classroom={classroom}&day={date}'
         try:
             bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date),
                            caption=f"Расписание для кабинета {classroom} на {date}")
@@ -125,7 +125,7 @@ def send_schedule(call):
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'teacher_text' in call.data.split('|')[0]:
         message_type, instructor, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
 
         try:
             schedule = ""
@@ -141,7 +141,7 @@ def send_schedule(call):
             bot.send_message(call.message.chat.id, f"Ошибка при получении расписания: {e}")
     if 'teacher_image' in call.data.split('|')[0]:
         message_type, instructor, date = call.data.split('|')
-        url_group = f'http://aesotq1.duckdns.org:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
+        url_group = f'http://195.133.18.119:8000/edit_schedule/instructor/?instructor={instructor}&day={date}'
         try:
             bot.send_photo(call.message.chat.id, utils_get_schedule_image(url_group, date),
                            caption=f"Расписание для преподавателя {instructor} на {date}")

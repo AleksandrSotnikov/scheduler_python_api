@@ -95,18 +95,22 @@ async def generate_schedule_image(schedule: ScheduleResponse, day: str):
             x_pos = col_positions["right"]
             draw.line([(img_width // 2, y_offset), (img_width // 2, y_offset+row_height)])
 
-    para = (f"{record.lesson_number} Пара")
-    for i in range(6):
+    draw.text((20,100),"1 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20,150),"2 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20,200),"3 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20,250),"4 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20,300),"5 пара, 8:00-9:35", fill=text_color, font=font, align="center")
+    draw.text((20,350),"6 пара, 8:00-9:35", fill=text_color, font=font, align="center")
 
 
 
-        row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
-        subject_text = f"{record.subject}, {record.instructor}"
+    row_text = f"{record.group_name} - Пара {record.lesson_number} - Ауд. {record.classroom}"
+    subject_text = f"{record.subject}, {record.instructor}"
 
-        draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
-        draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
+    draw.text((x_pos, record.lesson_number * row_height+20), row_text, fill=text_color, font=font, align="center")
+    draw.text((x_pos, record.lesson_number * row_height + row_height // 2 + 20), subject_text, fill=text_color, font=font,
                   align="center")
-        draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
+    draw.line([(padding_up, record.lesson_number * row_height + 60), (img_width - padding_up, record.lesson_number * row_height + 60)], fill=line_color)
 
     # Конвертация изображения в байты
     img_byte_array = io.BytesIO()
